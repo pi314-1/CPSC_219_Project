@@ -2,8 +2,6 @@ package model;
 
 public class DayAndTime {
 	
-	//Erin testing push
-
 	// time variables are private to ensure they are always set to valid amounts
 	private int hour = 12;
 	private int min = 0;
