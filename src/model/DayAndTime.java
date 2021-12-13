@@ -1,6 +1,7 @@
 package model;
 
 public class DayAndTime {
+	//testing commit yet again
 	
 	// time variables are private to ensure they are always set to valid amounts
 	private int hour = 12;
