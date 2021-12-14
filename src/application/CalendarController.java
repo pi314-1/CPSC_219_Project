@@ -62,6 +62,12 @@ public class CalendarController<GridPane> {
     	
     }
     
+    
+    /**
+     * this method should allow the user to click a grid on the display and the event details will show up in a text dialog below
+     * @param <Node>
+     * @param event
+     */
     public <Node> void clickGrid(javafx.scene.input.MouseEvent event) {
         Node source = (Node)event.getSource() ;
 //        Integer colIndex = taskGrid.getColumnIndex(source);
