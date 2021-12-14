@@ -21,7 +21,7 @@ public class Task {
 	 * 
 	 * @param aName
 	 * @param aSubject
-	 * @param aPriorityLevel
+	 * @param aPriorityLevetl
 	 * @param aDescription
 	 */
 	public Task(String aName, String aSubject, int aPriorityLevel, String aDescription) {
