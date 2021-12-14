@@ -1,5 +1,9 @@
 package model;
+
 /**
+ * Makes events which can be added to a user's to do list or calendar. Events
+ * are geared towards students. This class is extended by the Session and
+ * DueDate classes, which are used to create distinct types of events.
  * 
  * @author Sebastian
  * @version 1.0
@@ -14,7 +18,7 @@ public class Event {
 	private String description = "Add a description";
 
 	/**
-	 * The constructor method
+	 * Creates a new Event based on name, subject, priority level, and description.
 	 * 
 	 * @param aName
 	 * @param aSubject
@@ -29,7 +33,7 @@ public class Event {
 	}
 
 	/**
-	 * Setter method for the name
+	 * Sets the name of the event.
 	 * 
 	 * @param aName
 	 */
@@ -38,7 +42,7 @@ public class Event {
 	}
 
 	/**
-	 * Setter method for the subject
+	 * Setter method for the subject.
 	 * 
 	 * @param aSubject
 	 */
@@ -47,20 +51,20 @@ public class Event {
 	}
 
 	/**
-	 * Setter method for the priority level
+	 * Setter method for the priority level.
 	 * 
 	 * @param aPriorityLevel
 	 */
 	public void setPriorityLevel(int aPriorityLevel) {
 
 		// Check to ensure priority level is between 1-3
-		if (aPriorityLevel >= 1 || aPriorityLevel <= 3) {
+		if (aPriorityLevel > 0 && aPriorityLevel <= 3) {
 			priorityLevel = aPriorityLevel;
 		}
 	}
 
 	/**
-	 * Setter method for the description
+	 * Setter method for the description.
 	 * 
 	 * @param aDescription
 	 */
@@ -69,7 +73,7 @@ public class Event {
 	}
 
 	/**
-	 * This getter method returns the name of the event
+	 * This getter method returns the name of the event.
 	 * 
 	 * @return name
 	 */
@@ -78,7 +82,7 @@ public class Event {
 	}
 
 	/**
-	 * This getter method returns the subject of the event
+	 * This getter method returns the subject of the event.
 	 * 
 	 * @return subject
 	 */
@@ -87,7 +91,7 @@ public class Event {
 	}
 
 	/**
-	 * This getter method returns the priority level of the event
+	 * This getter method returns the priority level of the event.
 	 * 
 	 * @return priorityLevel
 	 */
@@ -96,7 +100,7 @@ public class Event {
 	}
 
 	/**
-	 * This getter method returns the description of the event
+	 * This getter method returns the description of the event.
 	 * 
 	 * @return description
 	 */
@@ -105,7 +109,7 @@ public class Event {
 	}
 
 	public String toString() {
-		return ("Name: " + name + "\n" + "Subject: " + subject + "\n" + "Priority: " + priorityLevel + "\n" + "About: "
+		return (name + "\n\t" + "Subject: " + subject + "\n\t" + "Priority: " + priorityLevel + "\n\t" + "About: "
 				+ description);
 	}
 
