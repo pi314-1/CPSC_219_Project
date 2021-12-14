@@ -23,9 +23,9 @@ public class Task {
 	 * @param aTime
 	 * @param aDay
 	 */
-	public Task(int aTime, int aDay) {
-		timeInt = aTime;
+	public Task(int aDay, int aTime) {
 		dayInt = aDay;
+		timeInt = aTime;
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class Task {
 	 * @return String
 	 */
 	public String dayToString(int aDayInt) {
-		String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+		String[] daysOfWeek = {"", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 		
 		return daysOfWeek[aDayInt];
 	}

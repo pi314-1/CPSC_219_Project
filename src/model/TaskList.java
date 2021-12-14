@@ -3,26 +3,26 @@ package model;
 import java.util.ArrayList;
 
 public class TaskList {
+	
 	private ArrayList<Task> tasks = new ArrayList<Task>();
-	private ArrayList<Task> eventsToDisplay = new ArrayList<Task>();
 
 	/**
 	 * Adds a new event to the list.
 	 * 
-	 * @param anEvent The new event to be added.
+	 * @param aTask The new event to be added.
 	 */
-	public void addEvent(Task anEvent) {
-		tasks.add(anEvent);
+	public void addTask(Task aTask) {
+		tasks.add(aTask);
 	}
 
 	/**
 	 * Deletes an event from the list.
 	 * 
-	 * @param eventName The name of the event to delete.
+	 * @param taskToRemove The name of the event to delete.
 	 */
-	public void removeEvent(String eventName) {
+	public void removeTask(String taskToRemove) {
 		for (Task e : tasks) {
-			if (e.getName().equals(eventName)) {
+			if (e.getName().equals(taskToRemove)) {
 				tasks.remove(e);
 			}
 		}
@@ -33,48 +33,23 @@ public class TaskList {
 	 * 
 	 * @return The total number of events scheduled.
 	 */
-	public int getNumberOfEvents() {
+	public int getNumberOfTasks() {
 		return tasks.size();
 	}
-
+	
 	/**
-	 * Sets the eventsToDisplay to have each event in the events list
+	 * This method returns a task as identified by its day and time ints.
+	 * @param index
+	 * @return Task
 	 */
-	public void resetEventsToDisplay() {
-		// updates events to display with a shallow copy of events
-		eventsToDisplay = (ArrayList<Task>) tasks.clone();
+	public Task getByDayTime(int aDayInt, int aTimeInt) {
+		
+		for (Task aTask: tasks) {
+			if (aTask.getDayInt() == aDayInt && aTask.getTimeInt() == aTimeInt) {
+				return aTask;
+				}
+			}
+		return null;
 	}
 
-//	/**
-//	 * 
-//	 * @param filterField
-//	 * @param filterValue
-//	 */
-//	public void filterDisplayedEvents(String filterField, String filterValue) {
-//		if (eventsToDisplay.size() == 0)
-//			resetEventsToDisplay();
-//
-//		// maybe should change the nesting to have the for loops outside
-//		switch (filterField) {
-//		case "subject":
-//			for (ToDo eachEvent : eventsToDisplay) {
-//				if (!eachEvent.getSubject().equals(filterValue))
-//					removeEvent(eachEvent.getName());
-//			}
-//			break;
-//		case "priorityLevel":
-//			for (ToDo eachEvent : eventsToDisplay) {
-//				if (!(eachEvent.getPriorityLevel() == Integer.parseInt(filterValue)))
-//					removeEvent(eachEvent.getName());
-//			}
-//			break;
-//		case "weekday": // idk what im doing
-//			for (ToDo eachEvent : eventsToDisplay) {
-//				/*
-//				 * try { if (eachEvent.getStartTime().getWeekday()); }
-//				 */
-//			}
-//		}
-//
-//	}
 }
