@@ -5,63 +5,37 @@ package model;
  * are geared towards students. 
  * 
  * @author Sebastian
- * @version 1.0
+ * @version 2.0
  * @since 2021/12/07
  *
  */
 public class Task {
 
-	private String name = "New Event";
-	private String subject = "Add a subject";
-	private int time = 8;
+	private String name = "New Task";
 	private String description = "Add a description";
+	private int timeInt;
+	private int dayInt;
 
 	/**
-	 * Creates a new Event based on name, subject, priority level, and description.
+	 * Creates a new Event based on the day and time,
+	 * the name and the description need to be set separately
 	 * 
-	 * @param aName
-	 * @param aSubject
-	 * @param aPriorityLevetl
-	 * @param aDescription
+	 * @param aTime
+	 * @param aDay
 	 */
-	public Task(String aName, String aSubject, int aPriorityLevel, String aDescription) {
-		name = aName;
-		subject = aSubject;
-		time = aPriorityLevel;
-		description = aDescription;
+	public Task(int aTime, int aDay) {
+		timeInt = aTime;
+		dayInt = aDay;
 	}
 
 	/**
-	 * Sets the name of the event.
+	 * Sets the name of the task.
 	 * 
 	 * @param aName
 	 */
 	public void setName(String aName) {
 		name = aName;
 	}
-
-	/**
-	 * Setter method for the subject.
-	 * 
-	 * @param aSubject
-	 */
-	public void setSubject(String aSubject) {
-		subject = aSubject;
-	}
-
-	/**
-	 * Setter method for the priority level.
-	 * 
-	 * @param aPriorityLevel
-	 */
-	public void setTime(int aPriorityLevel) {
-
-		// Check to ensure priority level is between 1-3
-		if (aPriorityLevel > 0 && aPriorityLevel <= 3) {
-			time = aPriorityLevel;
-		}
-	}
-
 	/**
 	 * Setter method for the description.
 	 * 
@@ -72,7 +46,7 @@ public class Task {
 	}
 
 	/**
-	 * This getter method returns the name of the event.
+	 * This getter method returns the name of the task.
 	 * 
 	 * @return name
 	 */
@@ -80,36 +54,61 @@ public class Task {
 		return name;
 	}
 
-	/**
-	 * This getter method returns the subject of the event.
-	 * 
-	 * @return subject
-	 */
-	public String getSubject() {
-		return subject;
-	}
 
 	/**
-	 * This getter method returns the priority level of the event.
+	 * This getter method returns the time of the task.
 	 * 
 	 * @return priorityLevel
 	 */
-	public int getTime() {
-		return time;
+	public int getTimeInt() {
+		return timeInt;
 	}
 
 	/**
-	 * This getter method returns the description of the event.
+	 * This getter method returns the description of the task.
 	 * 
 	 * @return description
 	 */
 	public String getDescription() {
 		return description;
 	}
+	/**
+	 * This getter method returns the day of the task.
+	 * 
+	 * @return priorityLevel
+	 */
+	public int getDayInt() {
+		return dayInt;
+	}
 
+	/**
+	 * a toString method for displaying the task
+	 * @return String
+	 */
 	public String toString() {
-		return (name + "\n\t" + "Subject: " + subject + "\n\t" + "Priority: " + time + "\n\t" + "About: "
+		return (name + "\n\t" + "Day: " + dayToString(dayInt) + "\n\t" + "Time:  " + timeToString(timeInt) + "\n\t" + "About: "
 				+ description);
+	}
+	
+	/**
+	 * This method converts dayInt into a day of the week
+	 * @param aTask
+	 * @return String
+	 */
+	public String dayToString(int aDayInt) {
+		String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+		
+		return daysOfWeek[aDayInt];
+	}
+	
+	/**
+	 * this method takes the timeInt and converts it into a time from 9:00-5:00.
+	 * @param aTimeInt
+	 * @return
+	 */
+	public String timeToString(int aTimeInt) {
+		String [] timesOfDay = {"8:00", "9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00"};
+		return timesOfDay[aTimeInt];
 	}
 
 }
