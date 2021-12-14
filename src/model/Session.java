@@ -6,7 +6,7 @@ package model;
  * @since 2021/12/07
  *
  */
-public class Session extends Event {
+public class Session extends Task {
 
 	private DayAndTime startTime;
 	private DayAndTime endTime;

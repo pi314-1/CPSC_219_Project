@@ -2,19 +2,18 @@ package model;
 
 /**
  * Makes events which can be added to a user's to do list or calendar. Events
- * are geared towards students. This class is extended by the Session and
- * DueDate classes, which are used to create distinct types of events.
+ * are geared towards students. 
  * 
  * @author Sebastian
  * @version 1.0
  * @since 2021/12/07
  *
  */
-public class Event {
+public class Task {
 
 	private String name = "New Event";
 	private String subject = "Add a subject";
-	private int priorityLevel = 1;
+	private int time = 8;
 	private String description = "Add a description";
 
 	/**
@@ -25,10 +24,10 @@ public class Event {
 	 * @param aPriorityLevel
 	 * @param aDescription
 	 */
-	public Event(String aName, String aSubject, int aPriorityLevel, String aDescription) {
+	public Task(String aName, String aSubject, int aPriorityLevel, String aDescription) {
 		name = aName;
 		subject = aSubject;
-		priorityLevel = aPriorityLevel;
+		time = aPriorityLevel;
 		description = aDescription;
 	}
 
@@ -55,11 +54,11 @@ public class Event {
 	 * 
 	 * @param aPriorityLevel
 	 */
-	public void setPriorityLevel(int aPriorityLevel) {
+	public void setTime(int aPriorityLevel) {
 
 		// Check to ensure priority level is between 1-3
 		if (aPriorityLevel > 0 && aPriorityLevel <= 3) {
-			priorityLevel = aPriorityLevel;
+			time = aPriorityLevel;
 		}
 	}
 
@@ -95,8 +94,8 @@ public class Event {
 	 * 
 	 * @return priorityLevel
 	 */
-	public int getPriorityLevel() {
-		return priorityLevel;
+	public int getTime() {
+		return time;
 	}
 
 	/**
@@ -109,7 +108,7 @@ public class Event {
 	}
 
 	public String toString() {
-		return (name + "\n\t" + "Subject: " + subject + "\n\t" + "Priority: " + priorityLevel + "\n\t" + "About: "
+		return (name + "\n\t" + "Subject: " + subject + "\n\t" + "Priority: " + time + "\n\t" + "About: "
 				+ description);
 	}
 

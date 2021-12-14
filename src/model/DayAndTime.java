@@ -60,10 +60,9 @@ public class DayAndTime {
 	 * @param anHour
 	 * @param aMin
 	 */
-	public DayAndTime(String aDayOfWeek, int anHour, int aMin) {
+	public DayAndTime(String aDayOfWeek, int anHour) {
 		setDayOfWeek(aDayOfWeek);
 		setHour(anHour);
-		setMin(aMin);
 	}
 
 	public String getDayOfWeek() {

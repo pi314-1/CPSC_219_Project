@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.CalendarController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CalendarController">
   <tabs>
     <Tab fx:id="addEventTab" text="Add Events">
          <content>
@@ -41,7 +41,7 @@
             </BorderPane>
          </content>
     </Tab>
-    <Tab fx:id="displayEventTab" text="Display events">
+    <Tab fx:id="displayEventTab" text="Display All Events">
          <content>
             <BorderPane prefHeight="200.0" prefWidth="200.0" />
          </content>

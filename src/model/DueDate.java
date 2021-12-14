@@ -1,6 +1,6 @@
 package model;
 
-public class DueDate extends Event {
+public class DueDate extends Task {
 	private DayAndTime deadline = new DayAndTime();
 
 	DueDate(String aName, String aSubject, int aPriorityLevel, String aDescription, DayAndTime aDate) {
