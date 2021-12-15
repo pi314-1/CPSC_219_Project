@@ -5,11 +5,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Tab;
 //import jdk.internal.jimage.ImageReader.Node;
+import javafx.scene.layout.GridPane;
 
-public class CalendarController<GridPane> {
+public class CalendarController {
 
 
     @FXML
@@ -64,16 +66,26 @@ public class CalendarController<GridPane> {
     
     
     /**
-     * this method should allow the user to click a grid on the display and the event details will show up in a text dialog below
+     * Gets the column and row index of a user's click on the grid.
+     * 
      * @param <Node>
      * @param event
      */
-    public <Node> void clickGrid(javafx.scene.input.MouseEvent event) {
-        Node source = (Node)event.getSource() ;
-//        Integer colIndex = taskGrid.getColumnIndex(source);
-//        Integer rowIndex = taskGrid.getRowIndex(source);
-//        System.out.println("Mouse clicked cell: " + colIndex + "And: " + rowIndex);
-        System.out.println("Mouse clicked cell: ");
-
+    public void clickGrid(javafx.scene.input.MouseEvent event) {
+        Node target = (Node) event.getTarget();
+        // traverse towards root until taskGrid is the parent node
+        if (target != taskGrid) {
+            Node parent;
+            while ((parent = target.getParent()) != taskGrid) {
+                target = parent;
+            }
+        }
+        Integer colIndex = taskGrid.getColumnIndex(target);
+        Integer rowIndex = taskGrid.getRowIndex(target);
+        if (colIndex == null && rowIndex == null)
+            System.out.println("BOO");
+        else
+            System.out.printf("Mouse entered cell [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
+        // https://stackoverflow.com/questions/39178981/accessing-the-column-and-row-index-of-gridpane-in-javafx-keeps-returning-null
     }
 }
