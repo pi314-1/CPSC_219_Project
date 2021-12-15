@@ -53,9 +53,6 @@ public class TaskList {
 		for (Task aTask : tasks) {
 			if (aTask.getDayInt() == aDayInt && aTask.getTimeInt() == aTimeInt) {
 				return aTask;
-			} else {
-				return null;
-
 			}
 		}
 		return null;
