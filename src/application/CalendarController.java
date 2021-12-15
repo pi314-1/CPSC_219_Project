@@ -37,6 +37,13 @@ public class CalendarController {
 
 	// The list of tasks to be added to and displayed.
 	public TaskList addedTasks = new TaskList();
+	
+	//random tasks to test stuff**************************************************
+	
+	public Task task1 = new Task(2,2);
+	public Task task2 = new Task(2,3);
+	public Task task3 = new Task(5,4);
+
 
 	@FXML
 	private void initialize() {
@@ -84,6 +91,10 @@ public class CalendarController {
 	 * @param event
 	 */
 	public void clickGrid(javafx.scene.input.MouseEvent event) {
+		
+		addedTasks.addTask(task1);
+		addedTasks.addTask(task2);
+		addedTasks.addTask(task3);
 		Node target = (Node) event.getTarget();
 		// traverse towards root until taskGrid is the parent node
 		if (target != taskGrid) {
@@ -97,13 +108,14 @@ public class CalendarController {
 		if (colIndex == null && rowIndex == null)
 			System.out.println("BOO");
 		else
-			System.out.printf("Mouse entered cell [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
+			
 			try {
 				String taskLabelText = ((Label) getNodeByRowColumnIndex(rowIndex, colIndex, taskGrid)).getText();
 				Task[] taskArray = addedTasks.toArray();
 				for (Task aTask : taskArray) {
 					if (taskLabelText.equals(aTask.getName()))
 						focusTask(aTask);
+					System.out.printf(addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()).toString());
 				}
 			} catch (Exception e) {
 				System.out.printf("No task at [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());

@@ -1,24 +1,33 @@
 package application;
-
-import model.Task;
-import model.TaskList;
-public class mainTester {
-
-	public static void main(String[] args) {
-		
-		Task aTask = new Task(1, 3);
-		Task aTask2 = new Task (2, 3);
-		
-		aTask.setDescrtiption("this project sucks");
-		aTask.setName("a project");
-		System.out.print(aTask.toString() + "\n");
 	
-		TaskList aList = new TaskList();
-		
-		aList.addTask(aTask);
-		aList.addTask(aTask2);
-		System.out.print(aList.getByDayTime(0, 0));
-		System.out.print(aList.getByDayTime(1, 3));
-		
+import java.io.FileInputStream;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.TabPane;
+import javafx.scene.layout.BorderPane;
+
+
+public class mainTester extends Application {
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			TabPane root = new TabPane();
+			
+			FXMLLoader loader = new FXMLLoader();
+			root = (TabPane)loader.load(new 
+					FileInputStream("src/view/CalendarInterface.fxml"));
+			Scene scene = new Scene(root,600,600);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
 	}
 }

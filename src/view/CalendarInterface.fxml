@@ -58,6 +58,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <BorderPane.margin>
                         <Insets bottom="20.0" />
@@ -378,11 +381,47 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="102.0" text="3:00" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="58.0" prefWidth="102.0" text="4:00" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="58.0" prefWidth="102.0" text="5:00" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="6" GridPane.rowIndex="10" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+                        <Label prefHeight="58.0" prefWidth="102.0" GridPane.columnIndex="7" GridPane.rowIndex="10" />
                      </children>
                   </GridPane>
                </center>
                <bottom>
-                  <Label fx:id="taskFocusLabel" prefHeight="99.0" prefWidth="575.0" text="name&#10;day&#10;time&#10;description" BorderPane.alignment="CENTER" />
+                  <Label fx:id="taskFocusLabel" prefHeight="99.0" prefWidth="575.0" BorderPane.alignment="CENTER" />
                </bottom></BorderPane>
          </content>
     </Tab>

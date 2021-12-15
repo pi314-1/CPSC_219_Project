@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class TaskList {
-	
+
 	private ArrayList<Task> tasks = new ArrayList<Task>();
 
 	/**
@@ -31,6 +31,7 @@ public class TaskList {
 	public Task[] toArray() {
 		return (Task[]) tasks.toArray();
 	}
+
 	/**
 	 * See how many events are scheduled.
 	 * 
@@ -39,19 +40,23 @@ public class TaskList {
 	public int getNumberOfTasks() {
 		return tasks.size();
 	}
-	
+
 	/**
 	 * This method returns a task as identified by its day and time ints.
+	 * 
 	 * @param index
 	 * @return Task
 	 */
 	public Task getByDayTime(int aDayInt, int aTimeInt) {
-		
-		for (Task aTask: tasks) {
+
+		for (Task aTask : tasks) {
 			if (aTask.getDayInt() == aDayInt && aTask.getTimeInt() == aTimeInt) {
 				return aTask;
-				}
+			} else {
+				return null;
+
 			}
+		}
 		return null;
 	}
 
