@@ -28,6 +28,9 @@ public class TaskList {
 		}
 	}
 
+	public Task[] toArray() {
+		return (Task[]) tasks.toArray();
+	}
 	/**
 	 * See how many events are scheduled.
 	 * 
