@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CalendarController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="948.0" prefWidth="1304.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CalendarController">
   <tabs>
-    <Tab fx:id="addEventTab" text="Add Events">
+    <Tab fx:id="addEventTab" text="Add Tasks">
          <content>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <top>
@@ -31,10 +31,33 @@
                      </children>
                   </HBox>
                </top>
+               <left>
+                  <VBox prefHeight="654.0" prefWidth="1297.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Enter the task name: " />
+                              <TextField fx:id="taskNameTextField" onKeyReleased="#TextFieldsHaveValue" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="eventDescLabel" text="Enter the task description: " />
+                              <TextField fx:id="taskDescTextField" onKeyReleased="#TextFieldsHaveValue" />
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#addTaskButtonClicked" text="Add Task to Weekly Planner" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </left>
             </BorderPane>
          </content>
     </Tab>
-    <Tab fx:id="displayEventTab" text="Display All Events">
+    <Tab fx:id="displayEventTab" text="Display Weekly Tasks">
          <content>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <center>

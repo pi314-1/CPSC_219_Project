@@ -41,7 +41,7 @@ public class Task {
 	 * 
 	 * @param aDescription
 	 */
-	public void setDescrtiption(String aDescription) {
+	public void setDescription(String aDescription) {
 		description = aDescription;
 	}
 
