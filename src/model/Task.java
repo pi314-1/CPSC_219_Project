@@ -86,8 +86,8 @@ public class Task {
 	 * @return String
 	 */
 	public String toString() {
-		return (name + "\n\t" + "Day: " + dayToString(dayInt) + "\n\t" + "Time:  " + timeToString(timeInt) + "\n\t" + "About: "
-				+ description);
+		return (name + ":" + "\n\t" + "Day: " + dayToString(dayInt) + "\n\t" + "Time:  " + timeToString(timeInt) + "\n\t" + "About: "
+				+ description + "\n");
 	}
 	
 	/**
