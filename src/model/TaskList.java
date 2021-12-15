@@ -29,7 +29,8 @@ public class TaskList {
 	}
 
 	public Task[] toArray() {
-		return (Task[]) tasks.toArray();
+		Task[] taskArray = tasks.toArray(new Task[0]);
+		return taskArray;
 	}
 
 	/**

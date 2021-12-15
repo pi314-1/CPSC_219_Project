@@ -107,7 +107,7 @@ public class Task {
 	 * @return
 	 */
 	public String timeToString(int aTimeInt) {
-		String [] timesOfDay = {"8:00", "9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00"};
+		String [] timesOfDay = {"", "8:00", "9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00"};
 		return timesOfDay[aTimeInt];
 	}
 
