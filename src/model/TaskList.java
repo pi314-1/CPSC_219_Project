@@ -12,6 +12,21 @@ public class TaskList {
 	 * @param aTask The new event to be added.
 	 */
 	public void addTask(Task aTask) {
+		int index = 0;
+		int counter = 0;
+		boolean isDuplicate = false;
+		for (Task findTask : tasks) {
+			
+			if (findTask.getDayInt() == aTask.getDayInt() && findTask.getTimeInt() == aTask.getTimeInt()) {
+				System.out.print(aTask.toString()+"here***************************");
+				index = counter;
+				isDuplicate = true;
+			}
+			counter++;
+		}
+		if (isDuplicate){
+			tasks.remove(index);
+		}
 		tasks.add(aTask);
 	}
 

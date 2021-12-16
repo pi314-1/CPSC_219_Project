@@ -85,25 +85,21 @@ public class CalendarController {
 			Integer colIndex = taskGrid.getColumnIndex(target);
 			Integer rowIndex = taskGrid.getRowIndex(target);
 			if (colIndex == null && rowIndex == null)
-				System.out.println("No task here");
+				taskFocusLabel.setText("No task selected");
 			else {
 				try {
 
 					if (addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()) != null) {
-						System.out.printf(addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()).toString());
 						focusTask(addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()));
 					} else {
-						System.out.printf("No Task at [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
+						taskFocusLabel.setText("No task selected");
 					}
 
 				} catch (Exception e) {
-					System.out.printf("Task at [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
-					System.out.print("no task here");
 				}
 				// https://stackoverflow.com/questions/39178981/accessing-the-column-and-row-index-of-gridpane-in-javafx-keeps-returning-null
 			}
 		} catch (Exception e) {
-			System.out.println("Mouse input was invalid");
 		}
 	}
 
@@ -115,12 +111,13 @@ public class CalendarController {
 	 * @param aTaskList The list to display on the grid.
 	 */
 	public void displayTasksToGrid(TaskList aTaskList) {
-
+		
 		for (Task aTask : aTaskList.toArray()) {
 			taskGrid.add(new Label(aTask.getName()), aTask.getDayInt(), aTask.getTimeInt());
 		}
 	}
 
+		     
 	/**
 	 * Displays task info in the label below the grid.
 	 * 
@@ -151,18 +148,10 @@ public class CalendarController {
         aTask.setName(taskNameTextField.getText());
         aTask.setDescription(taskDescTextField.getText());
         
-        
-        // this always returns an error, but should be modified in cunjuction  to remove a task if a duplicate is entered 
-        
-        //////////////////////////
-//        if (addedTasks.getByDayTime(aTask.getDayInt(), aTask.getTimeInt()) != null) {
-//        	addedTasks.removeTask(aTask.getDayInt(), aTask.getTimeInt());
-//        }
-        
         addedTasks.addTask(aTask);
-        System.out.println(aTask.toString());
-        clearAllUserInput();
         
+        clearAllUserInput();
+        addTaskButton.setDisable(true);
         displayTasksToGrid(addedTasks);
        
     }
