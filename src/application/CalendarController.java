@@ -102,33 +102,37 @@ public class CalendarController {
 	public void clickGrid(javafx.scene.input.MouseEvent event) {
 
 		Node target = (Node) event.getTarget();
-		// traverse towards root until taskGrid is the parent node
-		if (target != taskGrid) {
-			Node parent;
-			while ((parent = target.getParent()) != taskGrid) {
-				target = parent;
-			}
-		}
-		Integer colIndex = taskGrid.getColumnIndex(target);
-		Integer rowIndex = taskGrid.getRowIndex(target);
-		if (colIndex == null && rowIndex == null)
-			System.out.println("BOO");
-		else
-
-			try {
-
-				if (addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()) != null) {
-					System.out.printf(addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()).toString());
-					focusTask(addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()));
-				} else {
-					System.out.printf("No Task at [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
+		try {
+			// traverse towards root until taskGrid is the parent node
+			if (target != taskGrid) {
+				Node parent;
+				while ((parent = target.getParent()) != taskGrid) {
+					target = parent;
 				}
-
-			} catch (Exception e) {
-				System.out.printf("Task at [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
-				System.out.print("no task here");
 			}
-		// https://stackoverflow.com/questions/39178981/accessing-the-column-and-row-index-of-gridpane-in-javafx-keeps-returning-null
+			Integer colIndex = taskGrid.getColumnIndex(target);
+			Integer rowIndex = taskGrid.getRowIndex(target);
+			if (colIndex == null && rowIndex == null)
+				System.out.println("No task here");
+			else {
+				try {
+
+					if (addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()) != null) {
+						System.out.printf(addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()).toString());
+						focusTask(addedTasks.getByDayTime(colIndex.intValue(), rowIndex.intValue()));
+					} else {
+						System.out.printf("No Task at [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
+					}
+
+				} catch (Exception e) {
+					System.out.printf("Task at [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
+					System.out.print("no task here");
+				}
+				// https://stackoverflow.com/questions/39178981/accessing-the-column-and-row-index-of-gridpane-in-javafx-keeps-returning-null
+			}
+		} catch (Exception e) {
+			System.out.println("Mouse input was invalid");
+		}
 	}
 
 	/**
@@ -190,7 +194,7 @@ public class CalendarController {
 @FXML
     private void initialize() {
 
-        // This initializes the dropdown menus
+        // This initializes the drop-down menus
         String[] daysOfWeek = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
         String[] hours = { "8:00", "9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00" };
         dayChoiceBox.setItems(FXCollections.observableArrayList(daysOfWeek));
@@ -202,7 +206,7 @@ public class CalendarController {
 		addedTasks.addTask(new Task(6, 3));
 		addedTasks.addTask(new Task(1, 1));
 		displayTasksToGrid(addedTasks);
-        //disables add event button on initialization until textfields have value
+        //disables add event button on initialization until text fields have value
         addTaskButton.setDisable(true);
 
     }
@@ -232,6 +236,8 @@ public class CalendarController {
         addedTasks.addTask(task);
         System.out.println(task.toString());
         clearAllUserInput();
+        
+        displayTasksToGrid(addedTasks);
     }
 
 //    /
