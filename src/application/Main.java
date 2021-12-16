@@ -19,7 +19,7 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			root = (TabPane)loader.load(new 
 					FileInputStream("src/view/CalendarInterface.fxml"));
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,800,400);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
