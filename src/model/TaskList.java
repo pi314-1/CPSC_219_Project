@@ -18,12 +18,17 @@ public class TaskList {
 	/**
 	 * Deletes an event from the list.
 	 * 
-	 * @param taskToRemove The name of the event to delete.
+	 * needs to be modified so that it works lol 
+	 * 
+	 * @param aDayInt 
+	 * @param aTimeInt 
+	 * 
+	 * @param the day and time ints of the task to remove
 	 */
-	public void removeTask(String taskToRemove) {
-		for (Task e : tasks) {
-			if (e.getName().equals(taskToRemove)) {
-				tasks.remove(e);
+	public void removeTask(int aDayInt, int aTimeInt) {
+		for (Task aTask : tasks) {
+			if (aTask.getDayInt() == aDayInt && aTask.getTimeInt() == aTimeInt) {
+				tasks.remove(aTask);
 			}
 		}
 	}
