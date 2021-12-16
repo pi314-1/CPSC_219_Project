@@ -96,17 +96,21 @@ public class Task {
 	 * @return String
 	 */
 	public String dayToString(int aDayInt) {
+		
+		//First value is set to blank so that a the tasks can populate the grid properly 
 		String[] daysOfWeek = {"", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 		
 		return daysOfWeek[aDayInt];
 	}
 	
 	/**
-	 * this method takes the timeInt and converts it into a time from 9:00-5:00.
+	 * this method takes the timeInt and converts it into a time from 8:00-5:00.
 	 * @param aTimeInt
 	 * @return
 	 */
 	public String timeToString(int aTimeInt) {
+		
+		//First value is set to blank so that a the tasks can populate the grid properly 
 		String [] timesOfDay = {"","8:00", "9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00"};
 		return timesOfDay[aTimeInt];
 	}

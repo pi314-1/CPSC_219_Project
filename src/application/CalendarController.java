@@ -47,22 +47,22 @@ public class CalendarController {
 	@FXML
 	private Button addTaskButton;
 
-	@FXML
-	private void initialize() {
-	
-	    // This initializes the drop-down menus
-	    String[] daysOfWeek = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-	    String[] hours = { "8:00", "9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00" };
-	    dayChoiceBox.setItems(FXCollections.observableArrayList(daysOfWeek));
-	    timeChoiceBox.setItems(FXCollections.observableArrayList(hours));
-	
-	
-	    //disables add event button on initialization until text fields have value
-	    addTaskButton.setDisable(true);
-	
-	}
 	// The list of tasks to be added to and displayed.
 	private TaskList addedTasks = new TaskList();
+
+	@FXML
+	private void initialize() {
+
+		// This initializes the drop-down menus
+		String[] daysOfWeek = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+		String[] hours = { "8:00", "9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00" };
+		dayChoiceBox.setItems(FXCollections.observableArrayList(daysOfWeek));
+		timeChoiceBox.setItems(FXCollections.observableArrayList(hours));
+
+		// disables add event button on initialization until text fields have value
+		addTaskButton.setDisable(true);
+
+	}
 
 	/**
 	 * Gets the column and row index of a user's click on the grid and displays the
@@ -82,6 +82,11 @@ public class CalendarController {
 					target = parent;
 				}
 			}
+
+			// These next lines take the coordinates of a mouseclick on the grid and display
+			// the task clicked in a textbox below
+			// modified from:
+			// https://stackoverflow.com/questions/39178981/accessing-the-column-and-row-index-of-gridpane-in-javafx-keeps-returning-null
 			Integer colIndex = taskGrid.getColumnIndex(target);
 			Integer rowIndex = taskGrid.getRowIndex(target);
 			if (colIndex == null && rowIndex == null)
@@ -97,13 +102,10 @@ public class CalendarController {
 
 				} catch (Exception e) {
 				}
-				// https://stackoverflow.com/questions/39178981/accessing-the-column-and-row-index-of-gridpane-in-javafx-keeps-returning-null
 			}
 		} catch (Exception e) {
 		}
 	}
-
-
 
 	/**
 	 * Adds the name of a task to the grid as a label.
@@ -111,13 +113,12 @@ public class CalendarController {
 	 * @param aTaskList The list to display on the grid.
 	 */
 	public void displayTasksToGrid(TaskList aTaskList) {
-		
+
 		for (Task aTask : aTaskList.toArray()) {
 			taskGrid.add(new Label(aTask.getName()), aTask.getDayInt(), aTask.getTimeInt());
 		}
 	}
 
-		     
 	/**
 	 * Displays task info in the label below the grid.
 	 * 
@@ -130,40 +131,53 @@ public class CalendarController {
 			taskFocusLabel.setText("Select a task");
 		}
 	}
+
+	/**
+	 * This checks to ensure that both text fields on the "add tasks" pane have text
+	 * before allowing the "create task" button to be enabled
+	 * 
+	 * @param event
+	 */
 	public void TextFieldsHaveValue(KeyEvent event) {
-        String taskName = taskNameTextField.getText();
-        String taskDesc = taskDescTextField.getText();
-        boolean isDisabled = taskName.trim().isEmpty() || taskDesc.trim().isEmpty();
-        addTaskButton.setDisable(isDisabled);
-    }
+		String taskName = taskNameTextField.getText();
+		String taskDesc = taskDescTextField.getText();
+		boolean isDisabled = taskName.trim().isEmpty() || taskDesc.trim().isEmpty();
+		addTaskButton.setDisable(isDisabled);
+	}
 
 //    /
 //     * when the addTaskButton is clicked, a new task is created with the current
 //     * inputs in textFields and ChoiceBoxes and the task is added to the Tasks Grid.
 //     * User input is then cleared.
 //     /
-    public void addTaskButtonClicked() {
-        Task aTask = new Task(dayChoiceBox.getSelectionModel().selectedIndexProperty().intValue()+1,
-        		timeChoiceBox.getSelectionModel().selectedIndexProperty().intValue()+1);
-        aTask.setName(taskNameTextField.getText());
-        aTask.setDescription(taskDescTextField.getText());
-        
-        addedTasks.addTask(aTask);
-        
-        clearAllUserInput();
-        addTaskButton.setDisable(true);
-        displayTasksToGrid(addedTasks);
-       
-    }
+	public void addTaskButtonClicked() {
 
-//    /
-//     * removes any ChoiceBox selections and sets textFields to blank text.
-//     */
-    public void clearAllUserInput() {
-        taskNameTextField.setText("");
-        taskDescTextField.setText("");
-        dayChoiceBox.getSelectionModel().clearSelection();
-        timeChoiceBox.getSelectionModel().clearSelection();
-    }
+		// Creates a new task based on the choice box selections, the two Task
+		// constructors are increased by one for display purposes
+		Task aTask = new Task(dayChoiceBox.getSelectionModel().selectedIndexProperty().intValue() + 1,
+				timeChoiceBox.getSelectionModel().selectedIndexProperty().intValue() + 1);
+		aTask.setName(taskNameTextField.getText());
+		aTask.setDescription(taskDescTextField.getText());
+
+		// adds the newly created task to addedTasks and places the task on the task
+		// grid
+		addedTasks.addTask(aTask);
+		addTaskButton.setDisable(true);
+		clearAllUserInput();
+		displayTasksToGrid(addedTasks);
+
+	}
+
+	/**
+	 * This method removes any ChoiceBox selections and sets textFields to blank
+	 * text.
+	 */
+	public void clearAllUserInput() {
+		
+		taskNameTextField.setText("");
+		taskDescTextField.setText("");
+		dayChoiceBox.getSelectionModel().clearSelection();
+		timeChoiceBox.getSelectionModel().clearSelection();
+	}
 
 }
